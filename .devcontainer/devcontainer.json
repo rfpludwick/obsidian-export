@@ -1,0 +1,21 @@
+{
+	"image": "${localEnv:RFPLUDWICK_NEXUS_HOSTNAME}/vscode/base:latest",
+	"postCreateCommand": "bash .devcontainer/provision.sh",
+	"initializeCommand": "bash .devcontainer/initialize.sh",
+	"extensions": [
+		"oderwat.indent-rainbow",
+		"streetsidesoftware.code-spell-checker",
+		"github.vscode-pull-request-github",
+		"golang.go",
+		"timonwong.shellcheck",
+		"davidanson.vscode-markdownlint",
+		"redhat.vscode-yaml",
+		"mrmlnc.vscode-json5"
+	],
+	"remoteEnv": {
+		"TZ": "America/Los_Angeles",
+		"PATH": "${containerEnv:PATH}:/usr/local/go/bin",
+		"VAULT_ADDR": "${localEnv:VAULT_ADDR}",
+		"VAULT_GITHUB_TOKEN": "${localEnv:VAULT_GITHUB_TOKEN}"
+	}
+}
